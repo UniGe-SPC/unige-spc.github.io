@@ -26,6 +26,7 @@ concurrency:
 
 env:
   BUILD_PATH: "." # default value when not using subfolders
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
   # BUILD_PATH: subfolder
 
 jobs:
