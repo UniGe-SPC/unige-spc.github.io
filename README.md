@@ -20,7 +20,7 @@
 
 <br>
 
-Official curriculum study manifesto landing page for the Software Platforms & Cybersecurity track in Computer Engineering at the Università di Genova.
+Curriculum study manifesto landing page for the Software Platforms & Cybersecurity track in Computer Engineering at the Università di Genova.
 
 ---
 
@@ -38,19 +38,4 @@ npm run build   # Build production static bundle
 
 We welcome contributions to update course content, correct typos, or enhance the design.
 
-### 🍴 Fork & Pull Request Workflow
-
-1. **Fork** this repository on GitHub.
-2. **Clone** your fork locally:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/unige-spc.github.io.git
-   cd unige-spc.github.io
-   ```
-3. **Make changes** to the subject files directly in `src/content/` (e.g. `software-platforms.md`).
-4. **Commit & Push** your modifications directly to your fork's `main` branch:
-   ```bash
-   git add .
-   git commit -m "Update content for [Course Name]"
-   git push origin main
-   ```
-5. **Open a Pull Request**: Go to the original repository on GitHub and click "Compare & pull request" to submit your changes from your `main` branch.
+**Fork** the repository, **clone** it locally, and **make changes** to the subject files in `src/content/`. Then, **commit & push** to your fork's `main` branch and **open a Pull Request** to the original repository.
