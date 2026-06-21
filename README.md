@@ -10,38 +10,33 @@ Live site: [https://unige-spc.github.io/](https://unige-spc.github.io/)
 - **Styling**: Tailwind CSS v4 & Custom CSS Utilities
 - **Deployment**: Automatic GitHub Actions deployment on push to `main` branch
 
-## 🧞 Local Development Commands
+## 🧞 Local Commands
 
-All commands are run from the root of the project:
+Run these commands from the root of the project:
 
 ```bash
-# Install dependencies
-npm install
-
-# Start local development server (with hot-reload)
-npm run dev
-
-# Build production static bundle (outputs to /dist)
-npm run build
-
-# Preview production build locally
-npm run preview
+npm install     # Install dependencies
+npm run dev     # Start local server (localhost:4321)
+npm run build   # Build production static bundle
 ```
 
-## 🤝 Contributing Guide
+## 🤝 Contribution Guide
 
-We welcome contributions to update course content, correct typographical errors, or enhance the design!
+We welcome contributions to update course content, correct typos, or enhance the design.
 
-### How to Update Subject Content
-Subject details are managed as flat Markdown files in the `src/content/` directory.
+### 🍴 Fork & Pull Request Workflow
 
-1. **Locate the file**: Find the corresponding course `.md` file in `src/content/` (e.g., `software-platforms.md`).
-2. **Edit the file**: You can modify both the frontmatter details and the descriptive content text.
-   - **Frontmatter Fields**:
-     - `name`: Course title (string)
-     - `code`: Course code (string, e.g., `80112`)
-     - `category`: Either `core` or `elective`
-     - `cfu`: ECTS credits (number)
-     - `semester`: e.g., `1st Semester` or `2nd Semester`
-     - `hours`: Academic class hours (string, e.g., `48 Hours`)
-3. **Commit & Pull Request**: Commit your changes and submit a Pull Request to the main repository. Once merged, GitHub Actions will automatically rebuild and deploy the live site.
+1. **Fork** this repository on GitHub.
+2. **Clone** your fork locally:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/unige-spc.github.io.git
+   cd unige-spc.github.io
+   ```
+3. **Make changes** to the subject files in `src/content/`.
+4. **Commit & Push** your modifications:
+   ```bash
+   git add .
+   git commit -m "Update content for [Course Name]"
+   git push origin main
+   ```
+5. **Open a Pull Request**: Go to the original repository on GitHub and click "Compare & pull request" to submit your changes from your `main` branch.
