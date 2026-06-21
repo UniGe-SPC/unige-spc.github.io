@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Software Platforms & Cybersecurity | Ge Curriculum", 
+  description = "Explore the cutting-edge Software Platforms and Cybersecurity curriculum. Master computer security, Ai, software engineering, and modern cyberdefense systems." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Theme Detection Script to prevent FOUC (Flash of Unstyled Content) -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+          return 'light';
+        }
+        return 'dark';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+      window.localStorage.setItem('theme', theme);
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://spc.curriculum.ge/" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="bg-cyber-bg text-cyber-text antialiased font-sans select-none selection:bg-neon-cyan/35 selection:text-white">
+    <!-- Cyberpunk grid background layer -->
+    <div class="fixed inset-0 cyber-grid pointer-events-none z-0"></div>
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-80" style="background: var(--radial-bg)"></div>
+    
+    <!-- Subtle corner glowing spots -->
+    <div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-neon-cyan/5 blur-[120px] rounded-full pointer-events-none z-0 animate-cyber-pulse"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-neon-emerald/5 blur-[120px] rounded-full pointer-events-none z-0 animate-cyber-pulse" style="animation-delay: 1.5s;"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <main class="flex-grow">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
