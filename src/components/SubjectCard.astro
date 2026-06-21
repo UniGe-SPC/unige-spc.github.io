@@ -1,0 +1,53 @@
+---
+// SubjectCard.astro component
+const { subject } = Astro.props;
+const { Content } = subject;
+
+const isCore = subject.data.category === 'core';
+const borderClass = isCore ? 'hover:border-neon-cyan/40' : 'hover:border-neon-emerald/40';
+const textClass = isCore ? 'group-hover:text-neon-cyan' : 'group-hover:text-neon-emerald';
+const badgeClass = isCore ? 'text-neon-cyan bg-neon-cyan/5 border-neon-cyan/25' : 'text-neon-emerald bg-neon-emerald/5 border-neon-emerald/25';
+const codeBorderClass = isCore ? 'group-hover:border-neon-cyan/20' : 'group-hover:border-neon-emerald/20';
+const dotClass = isCore ? 'bg-neon-cyan/60 group-hover:bg-neon-cyan' : 'bg-neon-emerald/60 group-hover:bg-neon-emerald';
+---
+<div class={`glass-card relative rounded border border-cyber-border/80 bg-cyber-card/45 backdrop-blur-md p-5 flex flex-col justify-between group overflow-hidden transition-all duration-300 ${borderClass}`}>
+  {/* Structural Corner Indicators */}
+  <span class="absolute top-0 left-0 text-[10px] font-mono text-cyber-muted/30 pointer-events-none select-none p-1 leading-none">+</span >
+  <span class="absolute top-0 right-0 text-[10px] font-mono text-cyber-muted/30 pointer-events-none select-none p-1 leading-none">+</span >
+  <span class="absolute bottom-0 left-0 text-[10px] font-mono text-cyber-muted/30 pointer-events-none select-none p-1 leading-none">+</span >
+  <span class="absolute bottom-0 right-0 text-[10px] font-mono text-cyber-muted/30 pointer-events-none select-none p-1 leading-none">+</span >
+
+  <div>
+    {/* Top Row Meta */}
+    <div class="flex items-center justify-between gap-2 mb-4">
+      <span class={`font-mono text-[11px] text-cyber-muted tracking-wider bg-cyber-bg/50 px-2 py-0.5 rounded border border-cyber-border/40 group-hover:text-cyber-text transition-all duration-300 ${codeBorderClass}`}>
+        {subject.data.code}
+      </span>
+      <span class={`font-mono text-[12px] font-bold px-2 py-0.5 rounded border flex items-center gap-1 ${badgeClass}`}>
+        <span>{subject.data.cfu}</span>
+        <span class="text-[9px] opacity-75 font-normal">CFU</span>
+      </span>
+    </div>
+
+    {/* Title & Description */}
+    <h4 class={`text-lg font-bold text-cyber-text transition-colors duration-300 min-h-[2.5rem] leading-snug mb-2 ${textClass}`}>
+      {subject.data.name}
+    </h4>
+    
+    <div class="text-[15px] text-cyber-muted leading-relaxed line-clamp-5 mt-3">
+      <Content />
+    </div>
+  </div>
+
+  {/* Bottom Row Footer */}
+  <div>
+    <div class="w-full h-px bg-gradient-to-r from-cyber-border/60 via-cyber-border/20 to-transparent my-4"></div>
+    <div class="flex justify-between items-center font-mono text-[11px] text-cyber-muted">
+      <span class="uppercase tracking-wider">{subject.data.semester}</span>
+      <span class="flex items-center gap-1.5">
+        <span class={`inline-block w-1.5 h-1.5 rounded-full transition-colors duration-300 ${dotClass}`}></span>
+        {subject.data.hours}
+      </span>
+    </div>
+  </div>
+</div>
